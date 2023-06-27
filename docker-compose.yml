@@ -14,7 +14,6 @@ services:
       - ./based:/usr/share/www/:ro
   certbot:
     image: certbot/certbot
-    restart: always
     command: certonly --webroot --webroot-path=/var/www/certbot --email vadim@based.at --agree-tos --no-eff-email based.at
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 24h & wait $${!}; done;'"
     volumes:
