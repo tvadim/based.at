@@ -1,259 +1,263 @@
+
 <!DOCTYPE html>
-<html class="not-ie no-js" lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	
-	<title>based.at | home</title>
-	
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<link rel="shortcut" href="./images/favicon.ico">
-	
-	<!-- 1140px Grid styles for IE -->
-	<!--[if lte IE 9]><link rel="stylesheet" href="./css/ie.css" type="text/css" media="screen" /><![endif]-->
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>based.at — Data with taste</title>
+  <meta name="description" content="based.at — crisp data experiences, zero fluff." />
 
-<style TYPE="text/css">
-@font-face {
-  font-family: 'Droid Serif';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Droid Serif'), local('DroidSerif'), url(http://themes.googleusercontent.com/static/fonts/droidserif/v3/0AKsP294HTD-nvJgucYTaIbN6UDyHWBl620a-IRfuBk.woff) format('woff');
-}
-@font-face {
-  font-family: 'Open Sans';
-  font-style: normal;
-  font-weight: 600;
-  src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v6/MTP_ySUJH_bn48VBG8sNSnhCUOGz7vYGh680lGh-uXM.woff) format('woff');
-}
-@font-face {
-  font-family: 'Oswald';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Oswald Regular'), local('Oswald-Regular'), url(http://themes.googleusercontent.com/static/fonts/oswald/v7/-g5pDUSRgvxvOl5u-a_WHw.woff) format('woff');
-}
-@font-face {
-  font-family: 'Ubuntu Condensed';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Ubuntu Condensed'), local('UbuntuCondensed-Regular'), url(http://themes.googleusercontent.com/static/fonts/ubuntucondensed/v3/DBCt-NXN57MTAFjitYxdrFzqCfRpIA3W6ypxnPISCPA.woff) format('woff');
-}
-</style>
-    
-    
-	<!-- The 1140px Grid - http://cssgrid.net/ -->
-	<link rel="stylesheet" href="./css/1140.css" type="text/css" media="screen">
-	<link rel="stylesheet" href="./css/style.css" media="screen">
-	<link rel="stylesheet" href="./flexslider/flexslider.css">
-	
-	<!-- HTML5 Shiv + detect touch events -->
-	<script type="text/javascript" src="./res/modernizr.custom.js"></script>
+  <!-- Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0a0f12;
+      --card: #0f151a;
+      --muted: #91a6ad;
+      --text: #e6f0f2;
+      --accent: #00e5ff; /* cyan accent */
+      --accent-2: #008c97; /* deep teal */
+      --ring: rgba(0, 229, 255, .25);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 70% -10%, rgba(0,229,255,.12), transparent 60%),
+        radial-gradient(1000px 500px at -10% 30%, rgba(0,229,255,.10), transparent 50%),
+        linear-gradient(180deg, #0a0f12 0%, #0a0f12 100%);
+      background-color: var(--bg);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(10,15,18,.8), rgba(10,15,18,.4));
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: .2px; }
+    .brand img { width: 38px; height: 38px; }
+    .pill {
+      display: inline-flex; gap: 10px; align-items: center;
+      padding: 8px 14px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255, 255, 255, .02);
+      font-size: 12px; color: var(--muted);
+    }
+    .btn {
+      --shadow: 0 10px 30px rgba(0, 229, 255, .18);
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 14px 18px; border-radius: 14px; font-weight: 600;
+      background: linear-gradient(180deg, var(--accent) 0%, #00c9db 100%);
+      color: #001317; border: none; box-shadow: var(--shadow);
+      transition: transform .15s ease, box-shadow .15s ease, filter .15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); filter: brightness(1.02); box-shadow: 0 12px 36px rgba(0, 229, 255, .24); }
+    .btn.secondary {
+      background: linear-gradient(180deg, #162228, #0f171c);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: none;
+    }
+    .btn.secondary:hover { border-color: rgba(255,255,255,.18); }
+
+    /* Hero */
+    .hero { padding: 72px 0 48px; text-align: center; }
+    .logo-wrap {
+      width: 110px; height: 110px; margin: 0 auto 20px; position: relative;
+      display: grid; place-items: center;
+      border-radius: 28px;
+      background: radial-gradient(60% 60% at 50% 50%, rgba(0,229,255,.10) 0%, rgba(0,229,255,0) 100%);
+      animation: float 6s ease-in-out infinite;
+    }
+    .logo-wrap img { width: 86px; height: 86px; object-fit: contain; }
+    @keyframes float { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-3px);} }
+
+    h1 { font-size: clamp(34px, 5vw, 64px); line-height: 1.05; margin: 10px auto; letter-spacing: -0.02em; }
+    .sub {
+      font-size: clamp(16px, 2.2vw, 20px);
+      color: var(--muted);
+      max-width: 800px; margin: 12px auto 28px;
+    }
+    .cta { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+
+    /* Trust row */
+    .trust { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 56px auto 0; }
+    .trust .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 16px; padding: 18px; text-align: left;
+    }
+    .eyebrow { font-size: 12px; color: var(--muted); margin-bottom: 6px; letter-spacing: .4px; text-transform: uppercase; }
+    .stat { font-size: 28px; font-weight: 800; }
+    .muted { color: var(--muted); }
+
+    /* Features */
+    section.features { padding: 70px 0; }
+    .feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .feature {
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px; padding: 22px;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .feature:hover { transform: translateY(-2px); border-color: rgba(0,229,255,.35); }
+    .feature h3 { margin: 6px 0 8px; font-size: 18px; }
+    .feature p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    /* Split section */
+    .split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 24px; margin-top: 50px; }
+    .panel {
+      background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px; padding: 26px;
+    }
+    .panel h3 { margin-top: 0; }
+    .list { margin: 12px 0 0; padding-left: 18px; color: var(--muted); }
+    .list li { margin: 8px 0; }
+
+    /* Footer */
+    footer { border-top: 1px solid rgba(255,255,255,.08); margin-top: 70px; }
+    .foot { display: flex; align-items: center; justify-content: space-between; padding: 20px 0; gap: 14px; flex-wrap: wrap; }
+    .foot small { color: var(--muted); }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .feature-grid { grid-template-columns: 1fr 1fr; }
+      .split { grid-template-columns: 1fr; }
+      .trust { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Subtle fades */
+    [data-animate] { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .5s ease; }
+    [data-animate].show { opacity: 1; transform: translateY(0); }
+  </style>
 </head>
-<body class="color-1 h-style-1 text-1">
-	
-<div class="wrap">
+<body>
+  <header>
+    <div class="container nav">
+      <div>
+        <span><img src="/img/basedat.png" alt="based.at" width="138"/></span>
+      </div>
+      <div class="cta">
+        <a class="btn secondary" href="#features">Features</a>
+        <a class="btn" href="#cta">Get Started</a>
+      </div>
+    </div>
+  </header>
 
-	<!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->	
-	
-	<header id="header">
-		
-		<div class="clear"></div>
-	
-		<!-- - - - - - - - - - - - - Navigation - - - - - - - - - - - - - - -->	
+  <main class="container">
+    <section class="hero">
+      <div class="logo-wrap" data-animate>
+        <img src="/img/logo.png" alt="based.at logo" width="86" height="86" />
+      </div>
+      <h1 data-animate style="transition-delay:.05s">Data, but make it <span style="background: linear-gradient(90deg, var(--accent), #66f2ff); -webkit-background-clip: text; background-clip: text; color: transparent;">beautiful</span>.</h1>
+      <p class="sub" data-animate style="transition-delay:.1s">
+        We craft crisp data experiences with zero fluff — dashboards, automations, and integrations that feel effortless.
+      </p>
+      <div class="cta" data-animate style="transition-delay:.12s">
+        <a class="btn" href="#cta">Book a demo</a>
+        <a class="btn secondary" href="#features">See how it works</a>
+      </div>
 
-		<nav id="navigation" class="navigation clearfix">
-		</nav>
+      <div class="trust container" style="max-width:880px">
+        <div class="card" data-animate style="transition-delay:.16s">
+          <div class="eyebrow">Uptime</div>
+          <div class="stat">99.98%</div>
+          <div class="muted">Battle-tested pipelines</div>
+        </div>
+        <div class="card" data-animate style="transition-delay:.18s">
+          <div class="eyebrow">Latency</div>
+          <div class="stat">&lt; 120ms</div>
+          <div class="muted">From click to insight</div>
+        </div>
+        <div class="card" data-animate style="transition-delay:.2s">
+          <div class="eyebrow">Integrations</div>
+          <div class="stat">50+</div>
+          <div class="muted">Databases & SaaS tools</div>
+        </div>
+      </div>
+    </section>
 
-		<!-- - - - - - - - - - - - end Navigation - - - - - - - - - - - - - -->	
-		
-	</header>
-	
-	
-	<!-- - - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - - -->	
-	
-	
-	<!-- - - - - - - - - - - - - Slider - - - - - - - - - - - - - - - -->	
-	
-	<div class="slider">
-		
-		<section id="slider">
+    <section id="features" class="features">
+      <div class="feature-grid">
+        <article class="feature" data-animate>
+          <div class="pill">Pipelines</div>
+          <h3>Connect everything</h3>
+          <p>Unify your stack — from warehouses to APIs — with resilient, observable data flows.</p>
+        </article>
+        <article class="feature" data-animate style="transition-delay:.05s">
+          <div class="pill">Dashboards</div>
+          <h3>Clarity at a glance</h3>
+          <p>Pixel-perfect visuals, fast filters, and no spinning loaders. Decision-ready in seconds.</p>
+        </article>
+        <article class="feature" data-animate style="transition-delay:.1s">
+          <div class="pill">Automation</div>
+          <h3>Make it automatic</h3>
+          <p>Alerts, sync jobs, and scheduled reports — set once, ship forever.</p>
+        </article>
+      </div>
 
-			<div class="flexslider">
+      <div class="split">
+        <div class="panel" data-animate>
+          <h3>Opinionated where it matters</h3>
+          <p class="muted">Defaults that save hours: naming, tests, access patterns, and CI/CD templates out of the box.</p>
+          <ul class="list">
+            <li>Type-safe models and contracts</li>
+            <li>Zero-copy transforms where possible</li>
+            <li>Granular, audited permissions</li>
+          </ul>
+        </div>
+        <div class="panel" data-animate style="transition-delay:.05s">
+          <h3>Bring your own stack</h3>
+          <p class="muted">We meet you where you are: Postgres, BigQuery, Snowflake, Kafka, ClickHouse, REST, GraphQL, S3 — you name it.</p>
+          <div class="cta" id="cta" style="margin-top:14px">
+            <a class="btn" href="mailto:hello@based.at">Start a project</a>
+            <a class="btn secondary" href="#">Download deck</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-				<!--/ .slides-->
+  <footer>
+    <div class="container foot">
+      <div class="brand">
+      </div>
+      <small>© 2025 based.at — All rights reserved.</small>
+    </div>
+  </footer>
 
-			</div><!--/ .flexslider-->
-
-		<div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides clearfix" style="width: 1600%; -webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(-8260px, 0, 0);">
-					
-					<li class="" style="width: 1180px; float: left; display: block;">
-						<img src="./images/slider/slide-1.jpg" alt="">
-						<hgroup class="caption-1">
-							<h2>IT Management</h2>
-                            <h1>Project management</h1>
-                            <h1>Service operation</h1>
-						</hgroup>
-					</li>
-
-					<li class="" style="width: 1180px; float: left; display: block;">
-						<img src="./images/slider/slide-2.jpg" alt="">
-						<hgroup class="caption-2">
-							<h2>Systems Integration</h2>
-							<h1 class="tcolor">Exchange</h1>
-							<h1 class="tcolor">SharePoint</h1>
-						</hgroup>	
-					</li>
-
-					<li class="" style="width: 1180px; float: left; display: block;">
-						<img src="./images/slider/slide-3.jpg" alt="">
-						<hgroup class="caption-3">
-							<h2>Web Development</h2>
-							<h1 class="tcolor">NodeJS</h1>
-							<h1 class="tcolor">Typo3</h1>
-						</hgroup>
-					</li>
-
-					<li class="" style="width: 1180px; float: left; display: block;">
-						<img src="./images/slider/slide-4.jpg" alt="">
-						<hgroup class="caption-4">
-							<h2>Database Development</h2>
-							<h1 class="tcolor">Oracle</h1>
-							<h1 class="tcolor">MS SQL</h1>
-						</hgroup>	
-					</li>
-					
-				</ul></div></section><!--/ #slider-->
-
-		<section id="carousel">
-
-			<!--/ .slides-->
-
-		<div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides clearfix" style="width: 1600%; -webkit-transition: 0s; transition: 0s; -webkit-transform: translate3d(-895px, 0, 0);">
-				
-				<li class="" style="width: 245px; float: left; display: block;">
-					<a>
-						<h6>IT Management</h6>
-						<h5 class="tcolor">Solutions</h5>
-					</a>
-				</li>
-				
-				<li class="" style="width: 245px; float: left; display: block;">
-					<a>
-						<h6>Systems</h6>
-						<h5 class="tcolor">Integration</h5>
-					</a>	
-				</li>
-				
-				<li class="" style="width: 245px; float: left; display: block;">
-					<a>
-						<h6>Web</h6>
-						<h5 class="tcolor">Development</h5>
-					</a>
-				</li>
-				
-				<li class="" style="width: 245px; float: left; display: block;">
-					<a>
-						<h6>Database</h6>
-						<h5 class="tcolor">Development</h5>
-					</a>
-				</li>
-				
-			</ul></div><ul class="flex-direction-nav"><li><a class="flex-prev" href="#">Previous</a></li><li><a class="flex-next flex-disabled" href="#">Next</a></li></ul></section><!--/ #carousel-->	
-		
-	</div><!--/ .slider-->
-
-	<!-- - - - - - - - - - - - - end Slider - - - - - - - - - - - - - - -->
-	
-
-	<!-- - - - - - - - - - - - - - Main - - - - - - - - - - - - - - - - -->		
-		
-	<!--/ .main -->
-
-	<!-- - - - - - - - - - - - - end Main - - - - - - - - - - - - - - - - -->			
-		
-	<!-- - - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->	
-	
-	<footer id="footer" class="clearfix">
-		
-		<div class="row">
-			
-			<div class="threecol">
-				
-				<div class="widget-container widget_contact">
-					
-					<h3 class="widget-title">24 x 7 Support</h3>
-					
-					<span style="white-space:nowrap;color:#7d7d7d">+43 676 945-0405</span>
-					
-				</div><!--/ .widget-container-->
-
-			</div><!--/ .threecol-->			
-			
-			<div class="threecol">
-				
-				<div class="widget-container widget_text">
-					
-					<h3 class="widget-title">Address</h3>
-					
-					<div class="textwidget">
-						
-						<p>
-                            Vadim Tarasevic<br />
-							<br />
-                            A-1110 Wien
-						</p>
-						
-					</div><!--/ .textwidget-->
-					
-				</div><!--/ .widget-container-->
-
-			</div><!--/ .threecol-->			
-			
-			<div class="threecol">
-				
-				<div class="widget-container widget_email">
-					
-					<h3 class="widget-title">Email</h3>
-					
-					<a href="mailto:vadim@based.at">vadim@based.at</a>
-					
-				</div><!--/ .widget-container-->
-
-			</div><!--/ .threecol-->			
-			
-			<div class="threecol last">
-				
-				<div class="widget-container widget_social">
-					
-				</div><!--/ .widget-container-->
-
-			</div><!--/ .threecol-->
-			
-			<div class="clear"></div>
-			
-			<div class="adjective clearfix">
-
-			</div><!--/ .adjective-->
-			
-            <img src="./images/logo.png" style="position:absolute;bottom:90px;right:60px;" width="60" alt="logo" />
-
-		</div><!--/ .row-->
-		
-	</footer><!--/ #footer-->
-	
-	<!-- - - - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - - -->		
-	
-</div><!--/ .main-->
-
-<script src="./res/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
-<!--[if lt IE 9]><script src="js/selectivizr-and-extra-selectors.min.js"></script><![endif]-->
-<script src="./res/respond.min.js"></script>
-<script src="./res/jquery.flexslider-min.js"></script>
-<script src="./res/jquery.easing.1.3.js"></script>
-<script src="./res/jquery.cycle.all.min.js"></script>
-<script src="./res/jquery.jtweetsanywhere-1.3.1.min.js"></script>
-<script src="./res/jquery.fancybox.pack.js"></script>
-<script src="./res/custom.js"></script>
-
-
-<a href="./index.html#" id="back-top" title="Top" style="display: none;">Top</a></body></html>
+  <script>
+    // Simple intersection observer to reveal elements on scroll
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) e.target.classList.add('show');
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('[data-animate]').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
